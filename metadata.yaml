@@ -13,7 +13,7 @@
 # limitations under the License.
 
 homepage: "https://simpleanalytics.com"
-documentation: "https://docs.simpleanalytics.com"
+documentation: "https://docs.simpleanalytics.com/install-simple-analytics-with-google-tag-manager"
 versions:
   - sha: fc72cb51a79f59b4995bbdec03459b9d378d5f4b
     changeNotes: Initial version.
