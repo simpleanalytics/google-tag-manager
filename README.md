@@ -5,7 +5,12 @@
 </p>
 
 <p align="center">
-  <h1 align="center">Simple Analytics' Tag</h1>
+  <h1 align="center">Google Tag Manager</h1>
+  <p align="center">
+    <a href="https://github.com/simpleanalytics/googletagmanager/blob/main/LICENSE">
+      <img alt="License: Apache License 2.0" src="https://img.shields.io/badge/license-Apache%20License%202.0-brightgreen.svg" target="_blank" />
+    </a>
+  </p>
 </p>
 
 [Simple Analytics](https://simpleanalytics.com/) is a privacy friendly analytics. No consent required from your visitors!
