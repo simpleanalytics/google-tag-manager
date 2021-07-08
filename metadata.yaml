@@ -15,5 +15,5 @@
 homepage: "https://simpleanalytics.com"
 documentation: "https://docs.simpleanalytics.com"
 versions:
-  - sha: 555a34
-    changeNotes: Initial Version
+  - sha: fc72cb51a79f59b4995bbdec03459b9d378d5f4b
+    changeNotes: Initial version.
