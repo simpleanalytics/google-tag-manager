@@ -15,5 +15,7 @@
 homepage: "https://simpleanalytics.com"
 documentation: "https://docs.simpleanalytics.com/install-simple-analytics-with-google-tag-manager"
 versions:
+  - sha: 28c34a3acffd5341bd29db53227ecf62652e80c4
+    changeNotes: Update link to documentation.
   - sha: fc72cb51a79f59b4995bbdec03459b9d378d5f4b
     changeNotes: Initial version.
