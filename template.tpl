@@ -505,7 +505,11 @@ if (data.enableEvents) {
 
 const onSuccessDefault = () => {
   log('Loaded default script successfully.');
-  // data.gtmOnSuccess();
+
+  // We only run data.gtmOnSuccess() when we don't use the auto events script
+  if (!data.enableAutomatedEvents) {
+    data.gtmOnSuccess();
+  }
 };
 
 const onFailureDefault = () => {
@@ -525,22 +529,23 @@ const onFailureAutoEvents = () => {
 
 // Check if we got permission to use the custom domain
 if (queryPermission('inject_script', latestScript)) {
-  
+
   // Inject default latest script
   injectScript(latestScript, onSuccessDefault, onFailureDefault, latestScript);
 
   // Inject auto events script
-  if (queryPermission('inject_script', autoEventScript)) {
-    injectScript(autoEventScript, onSuccessAutoEvents, onFailureAutoEvents, autoEventScript);
-  } else {
-    log('No permission to load automated events script. Check the "Inject scripts" in the "Permissions" tab of Google Tab Manager.');
+  if (data.enableAutomatedEvents) {
+    if (queryPermission('inject_script', autoEventScript)) {
+      injectScript(autoEventScript, onSuccessAutoEvents, onFailureAutoEvents, autoEventScript);
+    } else {
+      log('No permission to load automated events script (' + autoEventScript + '). Check the "Inject scripts" in the "Permissions" tab of Google Tab Manager.');
+    }
   }
-  
 } else {
   if (hostname !== defaultHostname) {
     log('You need to add "https://' + hostname + '/*" to "Inject scripts" in the "Permissions" tab of Google Tab Manager');
   } else {
-    log('No permission to load default script. Check the "Inject scripts" in the "Permissions" tab of Google Tab Manager.');
+    log('No permission to load default script (' + latestScript + '). Check the "Inject scripts" in the "Permissions" tab of Google Tab Manager.');
   }
   data.gtmOnFailure();
 }
