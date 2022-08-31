@@ -12,9 +12,11 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-homepage: "https://simpleanalytics.com"
+homepage: "https://www.simpleanalytics.com/"
 documentation: "https://docs.simpleanalytics.com/install-simple-analytics-with-google-tag-manager"
 versions:
+  - sha: c539594158fa3052fe83b94aa2f6ae95902b21b8
+    changeNotes: Added more customization options to support more features of the Simple Analytics script. Including automated events, overwriting domains, ignoring pages, and ignoring metrics.
   - sha: 28c34a3acffd5341bd29db53227ecf62652e80c4
     changeNotes: Update link to documentation.
   - sha: fc72cb51a79f59b4995bbdec03459b9d378d5f4b
