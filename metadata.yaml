@@ -16,7 +16,15 @@ homepage: "https://www.simpleanalytics.com/"
 documentation: "https://docs.simpleanalytics.com/install-simple-analytics-with-google-tag-manager"
 versions:
   - sha: e7e9d355caf156be583273cae7ea353c9f198c1a
-    changeNotes: Added more customization options to support more features of the Simple Analytics script. Including automated events, overwriting domains, ignoring pages, and ignoring metrics.
+    changeNotes: |2
+      Added more customization options to support more features of the Simple Analytics script.
+      Enable automated events.
+      Overwrite your hostname.
+      Ignore certain pages.
+      Ignore certain metrics.
+      Add extra URL parameters to collect.
+      Enable hash mode.
+      Enable strict UTM codes.
   - sha: 28c34a3acffd5341bd29db53227ecf62652e80c4
     changeNotes: Update link to documentation.
   - sha: fc72cb51a79f59b4995bbdec03459b9d378d5f4b
