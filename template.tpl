@@ -1,3 +1,11 @@
+___TERMS_OF_SERVICE___
+
+By creating or modifying this file you agree to Google Tag Manager's Community
+Template Gallery Developer Terms of Service available at
+https://developers.google.com/tag-manager/gallery-tos (or such other URL as
+Google may provide), as modified from time to time.
+
+
 ___INFO___
 
 {
@@ -323,6 +331,55 @@ ___TEMPLATE_PARAMETERS___
       },
       {
         "type": "CHECKBOX",
+        "name": "ignorePagesToggle",
+        "checkboxText": "Ignore pages",
+        "simpleValueType": true,
+        "subParams": [
+          {
+            "type": "SIMPLE_TABLE",
+            "name": "ignorePages",
+            "displayName": "Pages to ignore",
+            "simpleTableColumns": [
+              {
+                "defaultValue": "/page-xxx",
+                "displayName": "Path of page (E.g.: /contact)",
+                "name": "path",
+                "type": "TEXT",
+                "isUnique": true,
+                "valueHint": "Make sure it starts with a slash.",
+                "valueValidators": [
+                  {
+                    "type": "REGEX",
+                    "args": [
+                      "^\\/(.*)$"
+                    ],
+                    "errorMessage": "The page should start with a slash (/)"
+                  }
+                ]
+              }
+            ],
+            "enablingConditions": [
+              {
+                "paramName": "ignorePagesToggle",
+                "paramValue": true,
+                "type": "EQUALS"
+              }
+            ],
+            "valueValidators": [
+              {
+                "type": "TABLE_ROW_COUNT",
+                "args": [
+                  1
+                ]
+              }
+            ]
+          }
+        ],
+        "defaultValue": false,
+        "help": "Our script does only collect non-personal data. But some customers might want to limit our metrics even more. That’s why we created the ignore metrics feature."
+      },
+      {
+        "type": "CHECKBOX",
         "name": "strictUtm",
         "checkboxText": "Enable Strict UTMs",
         "simpleValueType": true,
@@ -389,7 +446,6 @@ const injectScript = require('injectScript');
 const queryPermission = require('queryPermission');
 const createArgumentsQueue = require('createArgumentsQueue');
 const setInWindow = require('setInWindow');
-const copyFromWindow = require('copyFromWindow');
 
 const defaultHostname = 'scripts.simpleanalyticscdn.com';
 
@@ -408,9 +464,9 @@ const settings = {};
 if (data.allowUrlParametersToggle && data.allowUrlParameters.length > 0) {
   settings.allowParams = data.allowUrlParameters.map((field) => field.parameter);
 }
-// if (data.ignorePagesToggle && data.ignorePages.length > 0) {
-//   settings.ignorePages = data.ignorePages.map((field) => field.path);
-// }
+if (data.ignorePagesToggle && data.ignorePages.length > 0) {
+  settings.ignorePages = data.ignorePages.map((field) => field.path);
+}
 if (data.hostnameToggle && data.hostname) {
   settings.hostname = data.hostname;
 }
@@ -533,10 +589,6 @@ ___WEB_PERMISSIONS___
               {
                 "type": 1,
                 "string": "https://scripts.simpleanalyticscdn.com/*"
-              },
-              {
-                "type": 1,
-                "string": "https://sa5.adriaan.io/*"
               }
             ]
           }
@@ -698,3 +750,5 @@ scenarios: []
 ___NOTES___
 
 Created on 7/8/2021, 3:35:13 PM
+
+
