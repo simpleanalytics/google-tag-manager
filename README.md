@@ -16,3 +16,5 @@
 [Simple Analytics](https://simpleanalytics.com/) is a privacy friendly analytics. No consent required from your visitors!
 
 This is the Simple Analytics' Tag for Google Tag Manager. With this tag it's easy to install Simple Analytics on your website without any coding required (if you already use GTM).
+
+We edit this template on [tagmanager.google.com](https://tagmanager.google.com/).
