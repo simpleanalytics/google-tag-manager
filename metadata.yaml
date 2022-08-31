@@ -16,8 +16,6 @@ homepage: "https://www.simpleanalytics.com/"
 documentation: "https://docs.simpleanalytics.com/install-simple-analytics-with-google-tag-manager"
 versions:
   - sha: e7e9d355caf156be583273cae7ea353c9f198c1a
-    changeNotes: Only run automated events when enabled.
-  - sha: c539594158fa3052fe83b94aa2f6ae95902b21b8
     changeNotes: Added more customization options to support more features of the Simple Analytics script. Including automated events, overwriting domains, ignoring pages, and ignoring metrics.
   - sha: 28c34a3acffd5341bd29db53227ecf62652e80c4
     changeNotes: Update link to documentation.
