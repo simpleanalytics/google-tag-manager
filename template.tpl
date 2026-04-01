@@ -39,7 +39,7 @@ ___TEMPLATE_PARAMETERS___
     "checkboxText": "Use events",
     "simpleValueType": true,
     "defaultValue": true,
-    "help": "To use events with sa_event function (developer needed)"
+    "help": "To use events with the sa_event function. Requires some technical knowledge."
   },
   {
     "type": "CHECKBOX",
@@ -47,7 +47,7 @@ ___TEMPLATE_PARAMETERS___
     "checkboxText": "Use automated events",
     "simpleValueType": true,
     "defaultValue": false,
-    "help": "To collect clicks on download links, email addresses, and outbound links."
+    "help": "Automatically collect clicks on download links, email addresses, and outbound links."
   },
   {
     "type": "CHECKBOX",
@@ -58,7 +58,7 @@ ___TEMPLATE_PARAMETERS___
       {
         "type": "LABEL",
         "name": "customDomainHelpText",
-        "displayName": "Important! When using the custom domain feature, make sure to add your custom domain to \"Inject scripts\" in the \"Permissions\" tab of this template.",
+        "displayName": "Important! When using the custom domain feature, add it to “Inject scripts” in the “Permissions” tab of this template.",
         "enablingConditions": [
           {
             "paramName": "customDomainToggle",
@@ -92,7 +92,7 @@ ___TEMPLATE_PARAMETERS___
       }
     ],
     "defaultValue": false,
-    "help": "If you have setup a custom domain you can enter it here. If you don\u0027t know what this means, just disable it.\n\nMake sure to add your custom domain to \"Inject scripts\" in the \"Permissions\" tab of this template."
+    "help": "If you’ve set up a custom domain, enter it here. If you’re not sure what this means, leave this disabled. This should be a subdomain, not your root domain.\n\nImportant: If you use a custom domain, add it to “Inject scripts” in the “Permissions” tab of this template.\n\nEnter custom domain, For example: sa.example.com"
   },
   {
     "type": "GROUP",
@@ -105,7 +105,7 @@ ___TEMPLATE_PARAMETERS___
         "name": "collectDnt",
         "checkboxText": "Collect Do Not Track page views",
         "simpleValueType": true,
-        "help": "By default we don\u0027t collect page views from visitors that have Do Not Track enabled. Select this checkbox to collect page views from all visitors (including the DNT visitors).",
+        "help": "By default, we do not collect page views from visitors with Do Not Track enabled. Enable this option to collect page views from all visitors, including those with Do Not Track enabled.",
         "defaultValue": false
       },
       {
@@ -117,7 +117,7 @@ ___TEMPLATE_PARAMETERS___
           {
             "type": "TEXT",
             "name": "hostname",
-            "displayName": "Enter hostname (example: example.com)",
+            "displayName": "Enter hostname, such as example.com",
             "simpleValueType": true,
             "enablingConditions": [
               {
@@ -139,12 +139,12 @@ ___TEMPLATE_PARAMETERS___
           }
         ],
         "defaultValue": false,
-        "help": "Sometimes you want to link multiple domains into one domain in your dashboard. Or you want to use a different domain than people see in their browser address bar. You can overwrite the default domain name by specifying its hostname.\n\nIf you don\u0027t know what this means, just keep it disabled."
+        "help": "By default, we collect the domain name shown in the browser’s address bar.\n\nYou can overwrite it for a few reasons:\n1. Keep data in the same website property after a domain change.\n2. Combine multiple domains into one website property in your dashboard.\n3. Collect data under a different domain than the one shown in the browser.\n\nIf you’re not sure what this means, leave this disabled.\n\nEnter hostname, For example: example.com"
       },
       {
         "type": "CHECKBOX",
         "name": "allowUrlParametersToggle",
-        "checkboxText": "Allow extra URL parameters",
+        "checkboxText": "Allow additional URL parameters",
         "simpleValueType": true,
         "subParams": [
           {
@@ -177,7 +177,7 @@ ___TEMPLATE_PARAMETERS___
           }
         ],
         "defaultValue": false,
-        "help": "By default, we collect all UTM parameters (with and without the utm_ prefix) and the ref (which is short for utm_source) parameter. We don’t store the rest of the query parameters. But some customers have non-personal data in their query parameters—for example, product-id or article-slug. We allow collecting those parameters as long as they are specified via this setting."
+        "help": "By default, we collect all UTM parameters, with or without the utm_ prefix, and the ref parameter, which is short for utm_source. We do not store other query parameters.\n\nIf you have non-personal data in query parameters, such as product-id or article-slug, you can allow those parameters here."
       },
       {
         "type": "CHECKBOX",
@@ -216,7 +216,7 @@ ___TEMPLATE_PARAMETERS___
           {
             "type": "CHECKBOX",
             "name": "ignoreMetricCountry",
-            "checkboxText": "Country / time zone (country)",
+            "checkboxText": "Country from time zone (country)",
             "simpleValueType": true,
             "enablingConditions": [
               {
@@ -272,7 +272,7 @@ ___TEMPLATE_PARAMETERS___
           {
             "type": "CHECKBOX",
             "name": "ignoreMetricUseragent",
-            "checkboxText": "User Agent (useragent)",
+            "checkboxText": "User agent (useragent)",
             "simpleValueType": true,
             "enablingConditions": [
               {
@@ -327,7 +327,7 @@ ___TEMPLATE_PARAMETERS___
           }
         ],
         "defaultValue": false,
-        "help": "Our script does only collect non-personal data. But some customers might want to limit our metrics even more. That’s why we created the ignore metrics feature."
+        "help": "Our script only collects non-personal data. If you want to limit data collection even further, you can ignore specific metrics here. See our documentation for details on each metric."
       },
       {
         "type": "CHECKBOX",
@@ -342,7 +342,7 @@ ___TEMPLATE_PARAMETERS___
             "simpleTableColumns": [
               {
                 "defaultValue": "/page-xxx",
-                "displayName": "Path of page (E.g.: /contact)",
+                "displayName": "Page path",
                 "name": "path",
                 "type": "TEXT",
                 "isUnique": true,
@@ -376,20 +376,20 @@ ___TEMPLATE_PARAMETERS___
           }
         ],
         "defaultValue": false,
-        "help": "Our script does only collect non-personal data. But some customers might want to limit our metrics even more. That’s why we created the ignore metrics feature."
+        "help": "Our script only collects non-personal data. If you want to exclude specific pages from data collection, you can define them here. In GTM, this is usually done with triggers, but we also support it at the script level."
       },
       {
         "type": "CHECKBOX",
         "name": "strictUtm",
         "checkboxText": "Enable Strict UTMs",
         "simpleValueType": true,
-        "help": "When collecting UTM codes, we allow to skip the utm_ part. In our dashboard utm_source, source, ref will be stored as utm_source. But sometimes both parameters are used. To give you control over which parameter we should store you can enable strict UTMs. After that only UTM codes with the utm_ prefix will work.",
+        "help": "By default, we also accept UTM parameters without the utm_ prefix. In the dashboard, utm_source, source, and ref are stored as utm_source.\n\nEnable this option if you only want to collect parameters with the utm_ prefix.",
         "defaultValue": false
       },
       {
         "type": "SELECT",
         "name": "mode",
-        "displayName": "Mode for tracking page views",
+        "displayName": "Page view tracking mode",
         "macrosInSelect": false,
         "selectItems": [
           {
@@ -403,7 +403,28 @@ ___TEMPLATE_PARAMETERS___
         ],
         "simpleValueType": true,
         "defaultValue": "normal",
-        "help": "Some websites don’t really navigate to other pages but use the hash (#) in the URL. Normally Simple Analytics removes everything from the URLs after a ? or a #. We don\u0027t want to collect this information because it could contain private information like search keywords. To allow the script to detect those hash changes you can select hash mode."
+        "help": "Some websites do not navigate to separate pages and instead use the hash (#) in the URL. By default, Simple Analytics removes everything after a ? or #, because it may contain private information such as search terms. Enable this option if you want the script to collect page views when the hash changes."
+      },
+      {
+        "type": "SIMPLE_TABLE",
+        "name": "metadata",
+        "displayName": "Simple Analytics metadata",
+        "simpleTableColumns": [
+          {
+            "defaultValue": "",
+            "displayName": "Key",
+            "name": "key",
+            "type": "TEXT"
+          },
+          {
+            "defaultValue": "",
+            "displayName": "Value",
+            "name": "value",
+            "type": "TEXT"
+          }
+        ],
+        "help": "Add custom metadata to all page views and events sent by this tag. Values can be static text or GTM variables.\n\nExample: plan \u003d {{Plan}}, variant \u003d A.",
+        "alwaysInSummary": false
       }
     ]
   },
@@ -416,7 +437,7 @@ ___TEMPLATE_PARAMETERS___
       {
         "type": "LABEL",
         "name": "autoCollectWarning",
-        "displayName": "We do not collect any page views when you disable auto collect. You are responsible for sending page views our way via the window.sa_pageview function.",
+        "displayName": "When auto collect is disabled, no page views are collected automatically. You are responsible for sending page views with the window.sa_pageview function.",
         "enablingConditions": [
           {
             "paramName": "autoCollect",
@@ -430,7 +451,7 @@ ___TEMPLATE_PARAMETERS___
         "name": "autoCollect",
         "checkboxText": "Auto collect page views (default enabled)",
         "simpleValueType": true,
-        "help": "If you don\u0027t know what this means, keep it enabled. When disabling auto collect, you need to write some custom logic to collect page views. If disabled, we don\u0027t collect any page views without some extra code.",
+        "help": "Leave this enabled unless you have a specific reason to change it. When disabled, you must implement your own logic to collect page views. No page views will be collected automatically.",
         "defaultValue": true
       }
     ]
@@ -446,6 +467,7 @@ const injectScript = require('injectScript');
 const queryPermission = require('queryPermission');
 const createArgumentsQueue = require('createArgumentsQueue');
 const setInWindow = require('setInWindow');
+const makeTableMap = require('makeTableMap');
 
 const defaultHostname = 'scripts.simpleanalyticscdn.com';
 
@@ -498,6 +520,14 @@ if (data.ignoreMetricsToggle) {
 }
 
 setInWindow('sa_settings', settings, true);
+
+if (data.metadata) {
+  const metadata = makeTableMap(data.metadata, 'key', 'value');
+
+  if (metadata) {
+    setInWindow('sa_metadata', metadata, true);
+  }
+}
 
 if (data.enableEvents) {
   createArgumentsQueue('sa_event', 'sa_event.q');
@@ -719,6 +749,45 @@ ___WEB_PERMISSIONS___
                   {
                     "type": 1,
                     "string": "sa_settings"
+                  },
+                  {
+                    "type": 8,
+                    "boolean": true
+                  },
+                  {
+                    "type": 8,
+                    "boolean": true
+                  },
+                  {
+                    "type": 8,
+                    "boolean": false
+                  }
+                ]
+              },
+              {
+                "type": 3,
+                "mapKey": [
+                  {
+                    "type": 1,
+                    "string": "key"
+                  },
+                  {
+                    "type": 1,
+                    "string": "read"
+                  },
+                  {
+                    "type": 1,
+                    "string": "write"
+                  },
+                  {
+                    "type": 1,
+                    "string": "execute"
+                  }
+                ],
+                "mapValue": [
+                  {
+                    "type": 1,
+                    "string": "sa_metadata"
                   },
                   {
                     "type": 8,
