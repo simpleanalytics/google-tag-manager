@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="https://simpleanalytics.com/?ref=github.com/simpleanalytics/googletagmanager">
+  <a href="https://www.simpleanalytics.com/?ref=github.com/simpleanalytics/googletagmanager">
     <img src="https://assets.simpleanalytics.com/images/logos/logo-github-readme.png" alt="Simple Analytics logo" height="62" />
   </a>
 </p>

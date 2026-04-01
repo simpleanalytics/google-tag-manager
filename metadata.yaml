@@ -15,6 +15,10 @@
 homepage: "https://www.simpleanalytics.com/"
 documentation: "https://docs.simpleanalytics.com/install-simple-analytics-with-google-tag-manager"
 versions:
+  - sha: 73efbbb0e3cfbe50b44b28b99df0d2ee86cc7283
+    changeNotes: |2
+      Add support for custom metadata key/value pairs via sa_metadata.
+      Improve template labels and help text for clearer configuration.
   - sha: e7e9d355caf156be583273cae7ea353c9f198c1a
     changeNotes: |2
       Added more customization options to support more features of the Simple Analytics script.
